@@ -1,3 +1,4 @@
+/*
 package com.company;
 
 import java.util.Scanner;
@@ -50,3 +51,4 @@ public class IntCalc implements Calc {
     }
 }
 
+*/

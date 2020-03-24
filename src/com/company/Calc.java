@@ -1,8 +1,8 @@
 package com.company;
 
 public interface Calc {
-    String getOperation();
-    int getFirstInt();
-    int getSecondInt();
-    int math(int num1, int num2, String operation);
+    int sum(int a, int b);
+    int dev(int a, int b);
+    int sub(int a, int b);
+    int mult(int a, int b);
 }

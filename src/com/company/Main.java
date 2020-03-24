@@ -11,10 +11,6 @@ public class Main {
         System.out.println("Результат операции равен " + result);*/
 
         StringCalc stringCalc = new StringCalc();
-        String operation = stringCalc.getOperation();
-        int num1 = stringCalc.getFirstInt();
-        int num2 = stringCalc.getSecondInt();
-        int result = stringCalc.math(num1, num2, operation);
-        System.out.println("Результат операции равен " + result);
+        stringCalc.GetOperation();
     }
 }

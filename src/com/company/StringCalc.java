@@ -4,71 +4,75 @@ import java.util.Scanner;
 
 public class StringCalc implements Calc {
 
-    Scanner scan = new Scanner(System.in);
-    String s;
-    String operation;
+    private int num1;
+    private int num2;
+    private int result;
+    private String s;
+    private String operation;
 
-    @Override
-    public String getOperation() {
-        System.out.print("Введите выражение");
-        s = scan.nextLine();
+    private void split(String operation){
+        String[]output = s.split(operation);
+        String GetNum1 = output[0];
+        String GetNum2 = output[1];
+        num1 = Integer.parseInt(GetNum1);
+        num2 = Integer.parseInt(GetNum2);
+    }
+    public int GetOperation(){
+        Scanner scan = new Scanner(System.in);
+        System.out.println("Введите выражение");
+        s = scan.next();
         char[] str = s.toCharArray();
         for (int i = 0; i < str.length; i++) {
             switch (str[i]) {
                 case '+':
                     operation = "\\+";
+                    split(operation);
+                    System.out.println("Результат операции "+ sum(num1, num2));
                     break;
                 case '-':
                     operation = "\\-";
+                    split(operation);
+                    System.out.println("Результат операции "+ dev(num1, num2));
                     break;
                 case '*':
                     operation = "\\*";
+                    split(operation);
+                    System.out.println("Результат операции "+ mult(num1, num2));
                     break;
                 case '/':
                     operation = "\\/";
+                    split(operation);
+                    System.out.println("Результат операции "+ sub(num1, num2));
                     break;
             }
 
         }
-        return operation;
-    }
-
-    @Override
-    public int getFirstInt() {
-        String[]output = s.split(operation);
-        String GetNum1 = output[0];
-        int num1 = Integer.parseInt(GetNum1);
-        return num1;
-    }
-
-    @Override
-    public int getSecondInt() {
-        String[]output = s.split(operation);
-        String GetNum2 = output[1];
-        int num2 = Integer.parseInt(GetNum2);
-        return num2;
-    }
-
-    @Override
-    public int math(int num1, int num2, String operation) {
-        int result;
-        switch (operation) {
-            case "\\+":
-                result = num1 + num2;
-                break;
-            case "\\-":
-                result = num1 - num2;
-                break;
-            case "\\*":
-                result = num1 * num2;
-                break;
-            case "\\/":
-                result = num1 / num2;
-                break;
-            default:
-                System.out.println("Операция не распознана.");
-                result = math(num1, num2, getOperation());
-        }
         return result;
     }
+
+    @Override
+    public int sum(int a, int b) {
+        result = a + b;
+        return result;
+    }
+
+    @Override
+    public int dev(int a, int b) {
+        result = a - b;
+        return result;
+    }
+
+    @Override
+    public int sub(int a, int b) {
+        result = a / b;
+        return result;
+    }
+
+    @Override
+    public int mult(int a, int b) {
+        result = a * b;
+        return result;
+    }
+
 }
+
